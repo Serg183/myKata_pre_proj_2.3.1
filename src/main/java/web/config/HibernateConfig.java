@@ -2,10 +2,7 @@ package web.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,10 +16,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-@EnableAspectJAutoProxy
+
 @EnableTransactionManagement
 //@EnableJpaRepositories("web.model")
 @PropertySource("classpath:db.properties")
+//@ComponentScan("web")
 public class HibernateConfig {
 
     @Autowired
