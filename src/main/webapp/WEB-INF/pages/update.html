@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Update/Edit</title>
 </head>
 <body>
-$END$
+****** Edit user ******
+<form acton="#" th:action="@{/update}" th:object="${user}" method="POST">
+    <label for="id">id</label>
+    <input readonly type="number" th:field="*{id}" id="ia" placeholder="id"
+    <br>
+    <br>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <br>
+    <br>
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="name" placeholder="lastName">
+    <br>
+    <br>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="lastName">
+    <br>
+    <br>
+    <input type="submit" value="Update user"/>
+</form>
 </body>
 </html>

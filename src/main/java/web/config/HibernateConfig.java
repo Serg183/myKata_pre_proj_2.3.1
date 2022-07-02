@@ -1,6 +1,6 @@
 package web.config;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
@@ -10,20 +10,20 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-
 @EnableTransactionManagement
-//@EnableJpaRepositories("web.model")
+//@EnableJpaRepositories("web.dao")
 @PropertySource("classpath:db.properties")
 //@ComponentScan("web")
 public class HibernateConfig {
 
-    @Autowired
+    @Resource
     private Environment env;
 
     @Bean

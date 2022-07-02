@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Create user</title>
 </head>
 <body>
-$END$
+****** Create user ******
+<form acton="#" th:action="@{create}" th:object="${user}" method="POST">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <br>
+    <br>
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="name" placeholder="lastName">
+    <br>
+    <br>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="lastName">
+    <br>
+    <br>
+    <input type="submit" value="Create user"/>
+</form>
 </body>
 </html>
