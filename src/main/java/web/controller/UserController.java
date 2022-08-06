@@ -39,10 +39,17 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
-        userService.removeUser(id);
-        return "redirect:/users";
+        try {
+            User user = userService.getUserById(id);
+            if(user != null) {
+                userService.removeUser(id);
+            }
+            return "redirect:/users";
+        } catch (Exception e) {
+            return "user not found";
+        }
     }
 
     @GetMapping("/update/{id}")
@@ -57,11 +64,5 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/users";
     }
-
-
-
-
-
-
 
 }
