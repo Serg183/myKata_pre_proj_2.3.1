@@ -17,9 +17,13 @@ import web.service.UserService;
 @RequestMapping("/")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
 
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("users")
     public String listUser(Model model) {
@@ -57,11 +61,4 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/users";
     }
-
-
-
-
-
-
-
 }

@@ -18,13 +18,17 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-//@EnableJpaRepositories("web.dao")
+
 @PropertySource("classpath:db.properties")
-//@ComponentScan("web")
+
 public class HibernateConfig {
 
-    @Resource
     private Environment env;
+
+    @Autowired
+    public HibernateConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

@@ -15,7 +15,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
-    EntityManager entityManger;
+    private EntityManager entityManger;
 
     @Override
     public List<User> listUser() {
